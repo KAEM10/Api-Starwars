@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Importa componentes de react-router-dom para manejar enrutamiento en la aplicación
+import 'bootstrap/dist/css/bootstrap.min.css'; // Importa estilos de Bootstrap
+
+import PeopleList from './components/peopleList'; // Importa componente PeopleList
+import ViewCharacteristics from './components/viewCharacteristics'; // Importa componente ViewCharacteristics
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router> {/* Inicia el enrutador de la aplicación */}
+      <div className="container p-4"> {/* Contenedor principal de la aplicación */}
+        <Routes> {/* Define las rutas de la aplicación */}
+          <Route path="/" element={<PeopleList />} />
+          <Route path="/characteristics/:id" element={<ViewCharacteristics />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
